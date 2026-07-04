@@ -1,0 +1,267 @@
+import { CTAButton } from '@/components/CTAButton'
+
+const W = 'max-w-[1080px] mx-auto px-[clamp(1.5rem,5vw,4rem)]'
+const WCH = 'max-w-[680px] mx-auto px-[clamp(1.5rem,5vw,4rem)]'
+const SEC = 'py-[clamp(4rem,10vw,8rem)]'
+
+export default function Page() {
+  return (
+    <>
+      <Nav />
+      <main>
+        <Hero />
+        <hr className="section-divider" />
+        <Poveste />
+        <hr className="section-divider" />
+        <Beneficii />
+        <hr className="section-divider" />
+        <Testimoniale />
+        <hr className="section-divider" />
+        <Oferta />
+        <hr className="section-divider" />
+        <FAQ />
+      </main>
+      <Footer />
+    </>
+  )
+}
+
+function Nav() {
+  return (
+    <nav className="sticky top-0 z-50" style={{ background: 'var(--bg)', borderBottom: '1px solid var(--sp)' }}>
+      <div className={`${W} flex items-center justify-between flex-wrap gap-2 min-h-[3.25rem] py-2`}>
+        <a href="/" className="font-serif italic" style={{ fontSize: '1rem', color: 'var(--fg)', textDecoration: 'none' }}>
+          Pace cu <span style={{ color: 'var(--acc)' }}>Farfuria</span>
+        </a>
+        <div className="flex items-center gap-6">
+          <a href="#poveste" className="hidden sm:block" style={{ fontSize: '.68rem', letterSpacing: '.1em', textTransform: 'uppercase', color: 'var(--fg2)', textDecoration: 'none' }}>Poveste</a>
+          <a href="#oferta" className="cta-btn" style={{ padding: '.5rem 1.25rem', fontSize: '.7rem' }}>47 RON</a>
+        </div>
+      </div>
+    </nav>
+  )
+}
+
+function Hero() {
+  return (
+    <section id="hero" className={SEC} style={{ background: 'var(--bg)' }}>
+      <div className={W}>
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr,0.55fr] gap-[clamp(3rem,8vw,6rem)] items-center">
+          <div>
+            <p className="eyebrow mb-6">E-book · Nutriție conștientă · PDF</p>
+            <h1 className="font-serif font-normal mb-8 [text-wrap:balance]" style={{ fontSize: 'clamp(2.1rem,5.5vw,4.2rem)', lineHeight: 1.1, color: 'var(--fg)' }}>
+              Nu mai pierde timp<br />cu diete.<br />
+              <em style={{ color: 'var(--acc)', fontStyle: 'italic' }}>Câștigă o relație.</em>
+            </h1>
+            <p className="font-serif mb-10" style={{ fontSize: 'clamp(1rem,2vw,1.15rem)', lineHeight: 1.82, color: 'var(--fg2)', maxWidth: '50ch' }}>
+              Dacă ai slăbit și te-ai îngrășat de mai multe ori, dacă mănânci
+              &ldquo;bine&rdquo; în public și diferit acasă, dacă te simți vinovată după
+              fiecare masă &mdash; nu ai o problemă de voință. Ai o relație
+              disfuncțională cu mâncarea. Și asta se poate vindeca.
+            </p>
+            <div className="flex flex-col sm:flex-row items-start gap-4">
+              <CTAButton />
+              <p style={{ fontSize: '.75rem', color: 'var(--fg2)', alignSelf: 'center' }}>Acces instant · PDF · Fără abonament</p>
+            </div>
+          </div>
+          <div className="hidden lg:flex justify-center items-center"><BookCover /></div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function BookCover() {
+  return (
+    <div aria-hidden="true" style={{ width: '210px', height: '295px', background: 'linear-gradient(150deg, var(--bgch) 0%, var(--bg2) 100%)', border: '1px solid var(--sp)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '2rem 1.75rem', gap: '1.25rem', transform: 'perspective(900px) rotateY(-9deg) rotateX(2deg)', boxShadow: '-10px 14px 40px rgba(62,56,48,.16)' }}>
+      <svg width="36" height="48" viewBox="0 0 36 48" fill="none">
+        <ellipse cx="18" cy="38" rx="6" ry="9" fill="#8FA08A" opacity=".35" />
+        <path d="M18 29 C18 18 8 14 10 6" stroke="#8FA08A" strokeWidth="1.2" fill="none" strokeLinecap="round" />
+        <path d="M18 29 C18 18 28 14 26 6" stroke="#8FA08A" strokeWidth="1.2" fill="none" strokeLinecap="round" />
+        <ellipse cx="10" cy="5" rx="4" ry="6" fill="#8FA08A" opacity=".5" transform="rotate(-10 10 5)" />
+        <ellipse cx="26" cy="5" rx="4" ry="6" fill="#8FA08A" opacity=".5" transform="rotate(10 26 5)" />
+      </svg>
+      <p className="font-serif text-center" style={{ fontSize: '1.35rem', fontWeight: 400, color: 'var(--fg)', lineHeight: 1.3 }}>Pace cu<br />Farfuria</p>
+      <div style={{ width: '32px', height: '1px', background: 'var(--ter)', opacity: .6 }} />
+      <p style={{ fontSize: '.58rem', letterSpacing: '.2em', textTransform: 'uppercase', color: 'var(--fg2)', textAlign: 'center' }}>Nutriție conștientă<br />&amp; Reset metabolic</p>
+    </div>
+  )
+}
+
+function Poveste() {
+  return (
+    <section id="poveste" className={SEC} style={{ background: 'var(--bg2)' }}>
+      <div className={WCH}>
+        <p className="eyebrow mb-4">De ce această metodă</p>
+        <h2 className="h2 mb-10 [text-wrap:balance]">
+          Dietele nu eșuează pentru că tu ești slabă.<br />
+          Eșuează pentru că nu sunt proiectate pentru oameni reali.
+        </h2>
+        <div className="prose">
+          <p className="drop-cap">
+            Există un paradox dureros în industria nutriției: cu cât urmezi mai multe diete, cu atât
+            devine mai greu să slăbești. Nu pentru că ai voința mai slabă &mdash; ci pentru că fiecare
+            restricție îți reprogramează metabolismul și relația cu mâncarea.
+          </p>
+          <p>
+            &ldquo;Pace cu Farfuria&rdquo; nu este încă o dietă. Este un ghid care te ajută să înțelegi ce se
+            întâmplă cu adevărat în corpul și mintea ta atunci când mănânci &mdash; sau când te abții.
+            Este cartea pe care mi-aș fi dorit să o citesc înainte de primii zece ani de practică.
+          </p>
+          <p>
+            Metoda se bazează pe trei piloni: știința metabolismului adaptiv, interoceptivitate
+            (capacitatea de a simți semnalele corpului) și psihologia comportamentului alimentar.
+            Nu numărăm calorii. Nu interzicem alimente. Nu creăm vinovăție.
+          </p>
+        </div>
+        <div className="sbox mt-8">
+          <p className="eyebrow mb-3">Nota expertului</p>
+          <p>Cercetările în Dietary Restraint Theory (Herman &amp; Polivy, 1980) demonstrează că restricția alimentară cronică creează un ciclu de privare&ndash;exces care se autoîntreține. Această carte integrează aceste descoperiri cu practica clinică pentru a propune o alternativă sustenabilă.</p>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+const BENEFICII = [
+  { num: 'I', title: 'Înțelegi foamea reală', desc: 'Distinge între foamea fizică, emoțională și cea din plictiseală. Nu mai confunzi stresul cu apetitul.' },
+  { num: 'II', title: 'Decizii fără anxietate', desc: 'Orice restaurant, orice masă de familie, orice ocazie &mdash; fără calcul mental, fără negocieri interioare.' },
+  { num: 'III', title: 'Resetezi metabolismul', desc: 'Protocoalele de 21 de zile restabilesc sensibilitatea la leptină și grelină fără înfometare.' },
+  { num: 'IV', title: 'Eliberezi vinovăția', desc: 'Mâncatul devine neutru. O prăjitură este o prăjitură &mdash; nu o cădere, nu o recompensă, nu un test.' },
+  { num: 'V', title: 'Echilibru hormonal natural', desc: 'Somnul se îmbunătățește. Nivelul de cortizol scade. Energia este mai constantă pe parcursul zilei.' },
+  { num: 'VI', title: 'O relație de durată', desc: 'Nu un regim de 30 de zile, ci un sistem de referință pentru tot restul vieții tale.' },
+]
+
+function Beneficii() {
+  return (
+    <section className={SEC}>
+      <div className={W}>
+        <div className="mb-12">
+          <p className="eyebrow mb-4">Ce se schimbă</p>
+          <h2 className="h2 max-w-[40ch] [text-wrap:balance]">Transformările nu sunt vizuale. Sunt profunde.</h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[1px]" style={{ background: 'var(--sp)' }}>
+          {BENEFICII.map((item) => (
+            <div key={item.num} className="flex flex-col gap-3 p-8" style={{ background: 'var(--bg)' }}>
+              <span className="font-serif" style={{ fontSize: '.75rem', color: 'var(--ter)', letterSpacing: '.1em' }}>{item.num}</span>
+              <h3 className="font-serif" style={{ fontSize: '1.05rem', fontWeight: 500, color: 'var(--fg)', lineHeight: 1.35 }}>{item.title}</h3>
+              <p style={{ fontSize: '.875rem', lineHeight: 1.75, color: 'var(--fg2)' }}>{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+const TESTIMONIALE = [
+  { quote: 'Prima dată în opt ani am mâncat prăjitură la ziua copilului meu fără să mă simt vinovată. Nu am slăbit din prăjitură. Dar am slăbit din anxietate.', name: 'Raluca M.', detail: '34 ani · Iași', reverse: false },
+  { quote: 'Am înțeles că foamea mea de la ora 22 era de fapt singurătate. De atunci, nu am mai mâncat noaptea. Nu pentru că m-am interzis &mdash; ci pentru că nu mai simțeam nevoia.', name: 'Mihai C.', detail: '41 ani · Cluj', reverse: true },
+  { quote: 'Nu am slăbit 20 de kilograme. Dar am slăbit din anxietate. Nu mai petrec ore întregi gândindu-mă ce am voie să mănânc. E mult mai greu de obținut decât un număr pe cântar.', name: 'Diana P.', detail: '28 ani · București', reverse: false },
+]
+
+function Testimoniale() {
+  return (
+    <section className={SEC} style={{ background: 'var(--bg2)' }}>
+      <div className={W}>
+        <div className="mb-12">
+          <p className="eyebrow mb-4">Transformări reale</p>
+          <h2 className="h2">Nu înainte și după. Doar înainte și mai liber.</h2>
+        </div>
+        <div className="flex flex-col">
+          {TESTIMONIALE.map((t, i) => (
+            <div key={i}>
+              <div className={`flex flex-col py-10 gap-8 ${t.reverse ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
+                <div className="md:w-1/3 shrink-0">
+                  <p className="font-serif font-medium" style={{ fontSize: '1.1rem', color: 'var(--fg)', marginBottom: '.25rem' }}>{t.name}</p>
+                  <p style={{ fontSize: '.75rem', color: 'var(--fg2)', letterSpacing: '.05em' }}>{t.detail}</p>
+                </div>
+                <blockquote className="tquote md:w-2/3">{t.quote}</blockquote>
+              </div>
+              {i < TESTIMONIALE.length - 1 && <hr style={{ height: '1px', background: 'var(--sp)', border: 'none' }} />}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+const INCLUS = [
+  '5 capitole de conținut practic și bazat pe știință',
+  'Protocol de 21 de zile (Resetarea)',
+  'Scala foamei și exerciții de interoceptivitate',
+  'Nota Expertului cu referințe academice în fiecare capitol',
+  'Secvența de email-uri post-lectură (onboarding emoțional)',
+  'PDF elegant, lizibil pe orice dispozitiv',
+  'Acces pe viață la fișier',
+]
+
+function Oferta() {
+  return (
+    <section id="oferta" className={SEC}>
+      <div className={WCH}>
+        <p className="eyebrow mb-4">Accesul la e-book</p>
+        <h2 className="h2 mb-8 [text-wrap:balance]">O investiție în relația cu corpul tău.</h2>
+        <div style={{ background: 'var(--bg2)', padding: 'clamp(2rem,5vw,3.5rem)', border: '1px solid var(--sp)' }}>
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8 pb-8" style={{ borderBottom: '1px solid var(--sp)' }}>
+            <div>
+              <p className="font-serif" style={{ fontSize: 'clamp(2.5rem,6vw,4rem)', fontWeight: 400, color: 'var(--ter)', lineHeight: 1 }}>47 RON</p>
+              <p style={{ fontSize: '.8rem', color: 'var(--fg2)', marginTop: '.5rem' }}>Plată unică · Fără abonament</p>
+            </div>
+            <CTAButton label="Obțin e-book-ul — 47 RON" />
+          </div>
+          <ul className="flex flex-col gap-3">
+            {INCLUS.map((item, i) => (
+              <li key={i} className="flex items-start gap-3" style={{ fontSize: '.875rem', color: 'var(--fg)' }}>
+                <span style={{ color: 'var(--acc)', flexShrink: 0, marginTop: '.1em' }}>—</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <p style={{ fontSize: '.72rem', color: 'var(--fg2)', marginTop: '2rem', fontStyle: 'italic' }}>Prețul reflectă valoarea conținutului, nu urgența. Nu există un cronometru. Ia decizia când ești gata.</p>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+const FAQS = [
+  { q: 'Nu sunt pe nicio dietă acum. Funcționează pentru mine?', a: 'Da, și poate mai bine. Cei care nu au mai experimentat restricție alimentară cronică asimilează principiile mai ușor. Dar dacă ești în mijlocul unui program, cartea te poate ajuta să îl privești diferit.' },
+  { q: 'Este un program de slăbit?', a: 'Nu promitem slăbire. Promitem o relație mai sănătoasă cu mâncarea. Multe persoane slăbesc ca efect secundar al echilibrului &mdash; dar nu este obiectivul principal și nu îl garantam.' },
+  { q: 'Cât durează să văd rezultate?', a: 'Schimbările de mentalitate sunt graduale. Unele persoane raportează o ușurare vizibilă în primele 2–3 săptămâni. Altele au nevoie de 2–3 luni pentru ca noul tipar să devină reflex.' },
+  { q: 'Pot să îl citesc pe telefon sau tabletă?', a: 'Da. Formatul PDF este optimizat pentru ecrane de toate dimensiunile. Poți descărca fișierul de până la 5 ori în 30 de zile de la achiziție.' },
+  { q: 'Există o garanție de returnare?', a: 'Nu oferim rambursare automată, dar suntem sinceri: dacă simți că nu a funcționat pentru tine, scrie-ne și discutăm. Nu suntem interesați să reținem bani pentru un produs care nu și-a dovedit valoarea.' },
+]
+
+function FAQ() {
+  return (
+    <section className={SEC} style={{ background: 'var(--bg2)' }}>
+      <div className={W}>
+        <div className="mb-12">
+          <p className="eyebrow mb-4">Întrebări frecvente</p>
+          <h2 className="h2">Răspunsuri oneste.</h2>
+        </div>
+        <div className="flex flex-col">
+          {FAQS.map((faq, i) => (
+            <div key={i} className="grid grid-cols-1 md:grid-cols-[2fr,3fr] gap-4 md:gap-10 py-8" style={{ borderBottom: '1px solid var(--sp)' }}>
+              <p className="font-serif" style={{ fontSize: '1.02rem', fontWeight: 500, color: 'var(--fg)', lineHeight: 1.5 }}>{faq.q}</p>
+              <p style={{ fontSize: '.875rem', lineHeight: 1.82, color: 'var(--fg2)' }}>{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function Footer() {
+  return (
+    <footer className="py-12" style={{ background: 'var(--fg)', color: 'var(--bg2)' }}>
+      <div className={`${W} flex flex-col sm:flex-row items-center justify-between gap-4`}>
+        <p className="font-serif italic" style={{ fontSize: '1rem', opacity: .8 }}>Pace cu Farfuria</p>
+        <p style={{ fontSize: '.72rem', letterSpacing: '.05em', opacity: .5 }}>&copy; {new Date().getFullYear()} · Toate drepturile rezervate</p>
+      </div>
+    </footer>
+  )
+}
