@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #FAF6EF;
+  --bg2: #EFE6D8;
+  --bgch: #F7F2EA;
+  --fg: #3E3830;
+  --fg2: #7A6C60;
+  --acc: #8FA08A;
+  --sp: rgba(143,160,138,.18);
+  --ter: #C08460;
+  --terd: #A86E4A;
+  --terp: rgba(192,132,96,.09);
+  --serif: 'Palatino Linotype','Book Antiqua',Palatino,Georgia,serif;
+  --sans: system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1B1713;
+    --bg2: #231E19;
+    --bgch: #1E1A16;
+    --fg: #EDE5D8;
+    --fg2: #A8998A;
+    --acc: #7E9379;
+    --sp: rgba(126,147,121,.18);
+    --terp: rgba(192,132,96,.12);
+    --terd: #D08B6A;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #1B1713; --bg2: #231E19; --bgch: #1E1A16;
+  --fg: #EDE5D8; --fg2: #A8998A; --acc: #7E9379;
+  --sp: rgba(126,147,121,.18); --terp: rgba(192,132,96,.12); --terd: #D08B6A;
+}
+
+:root[data-theme="light"] {
+  --bg: #FAF6EF; --bg2: #EFE6D8; --bgch: #F7F2EA;
+  --fg: #3E3830; --fg2: #7A6C60; --acc: #8FA08A;
+  --sp: rgba(143,160,138,.18); --terp: rgba(192,132,96,.09); --terd: #A86E4A;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: .67rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--acc);
+  font-weight: 500;
+}
+
+.h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.35rem,2.8vw,1.95rem);
+  font-weight: 400;
+  line-height: 1.28;
+}
+
+.section-divider { height: 1px; background: var(--sp); border: none; margin: 0; }
+
+/* Serif prose — child combinator prevents cascade into nested boxes */
+.prose > p {
+  font-family: var(--serif);
+  font-size: clamp(.97rem,1.7vw,1.08rem);
+  line-height: 1.88;
+  color: var(--fg);
+}
+.prose > p + p { margin-top: 1.1em; }
+
+/* Drop cap on first paragraph */
+.drop-cap::first-letter {
+  font-family: var(--serif);
+  font-size: 4.2em;
+  line-height: .78;
+  float: left;
+  margin: .06em .1em 0 0;
+  color: var(--ter);
+}
+
+/* Testimonial quote mark */
+.tquote {
+  position: relative;
+  font-family: var(--serif);
+  font-size: clamp(1rem,1.8vw,1.12rem);
+  line-height: 1.78;
+  color: var(--fg);
+  padding-left: 1rem;
+}
+.tquote::before {
+  content: '\201C';
+  font-family: var(--serif);
+  font-size: 4.5rem;
+  color: var(--acc);
+  opacity: .25;
+  position: absolute;
+  left: -.25rem;
+  top: -.75rem;
+  line-height: 1;
+}
+
+/* CTA button — sharp edges, no border-radius */
+.cta-btn {
+  display: inline-block;
+  background: var(--ter);
+  color: #FFF5ED;
+  padding: 1rem 2.25rem;
+  font-family: var(--sans);
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: background .2s;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.cta-btn:hover:not(:disabled) { background: var(--terd); }
+.cta-btn:disabled { opacity: .6; cursor: not-allowed; }
+
+/* Sage info box */
+.sbox {
+  background: var(--sp);
+  border-left: 3px solid var(--acc);
+  padding: 1.5rem 1.75rem;
+  margin-block: 2rem;
+}
+.sbox > p {
+  font-family: var(--sans);
+  font-size: .875rem;
+  line-height: 1.75;
+  color: var(--fg);
+}
