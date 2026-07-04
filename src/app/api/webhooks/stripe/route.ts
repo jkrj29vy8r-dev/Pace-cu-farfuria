@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
     await supabase.from('orders').update({ download_url: downloadUrl }).eq('id', order.id)
 
     await resend.emails.send({
-      from: process.env.RESEND_FROM_EMAIL ?? 'noreply@pacecufarfuria.ro',
+      from: process.env.RESEND_FROM_EMAIL ?? 'onboarding@resend.dev',
       to: email,
       subject: 'E-book-ul tău — Pace cu Farfuria',
       html: `<!doctype html><html lang="ro"><head><meta charset="utf-8"></head><body style="margin:0;padding:0;background:#FAF6EF;font-family:Georgia,serif;"><div style="max-width:560px;margin:0 auto;padding:3rem 2rem;"><div style="height:2px;background:#8FA08A;margin-bottom:2.5rem;"></div><h1 style="font-weight:400;font-size:2rem;color:#3E3830;margin:0 0 1.5rem;">Bun venit.</h1><p style="font-size:1.05rem;line-height:1.8;color:#3E3830;margin:0 0 1rem;">Ai făcut primul pas.</p><p style="font-family:system-ui;font-size:.9rem;line-height:1.75;color:#7A6C60;margin:0 0 2rem;">Nu te grăbi să citești totul dintr-o dată. Începe cu Capitolul I și acordă-ți timp să simți ce rezonează.</p><a href="${downloadUrl}" style="display:inline-block;background:#C08460;color:#FFF5ED;padding:14px 28px;text-decoration:none;font-family:system-ui;font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;">Descarcă E-book-ul</a><p style="font-family:system-ui;font-size:.75rem;color:#7A6C60;margin-top:1.5rem;">Link valid 30 de zile &middot; Maxim 5 descărcări</p></div></body></html>`,
