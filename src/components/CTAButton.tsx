@@ -6,12 +6,12 @@ export function CTAButton({ label = 'Obțin accesul — 47 RON' }: { label?: str
     setLoading(true)
     try {
       const res = await fetch('/api/checkout', { method: 'POST' })
-      if (!res.ok) throw new Error(`HTTP ${res.status}`)
-      const { url } = await res.json()
-      window.location.href = url
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error ?? `HTTP ${res.status}`)
+      window.location.href = data.url
     } catch (err) {
       console.error(err)
-      alert('A apărut o eroare. Te rugăm să încerci din nou.')
+      alert(err instanceof Error ? err.message : 'Eroare necunoscută')
       setLoading(false)
     }
   }
